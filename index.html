@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 98</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Game Menu (Front Page) -->
+    <div id="menu" class="menu">
+        <div class="game-menu" id="game-menu">
+            <h1>Game Menu</h1>
+            <div class="apple" id="apple">
+                <button class="menu-button" id="moduleButton" onclick="openModules()">Math 98</button>
+                <button class="menu-button" onclick="openScratch()">Fishing Review Game</button>
+                <button class="menu-button" onclick="window.location.href='Coming Soon'">Coming Soon</button>
+                <button class="menu-button" onclick="openPopup('howToPlayPopup')">How to Play</button>
+                <button class="menu-button" onclick="openPopup('creditsPopup')">Credits</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content for the modules or game page (hidden by default) -->
+    <div id="container" class="container" style="display:none;">
+        <!-- Game or Module Content -->
+        <h1>Module Content Goes Here</h1>
+        <!-- Add a button to return to the menu -->
+        <button onclick="goBackToMenu()">Back to Game Menu</button>
+    </div>
+
+    <!-- How to Play Popup -->
+    <div id="howToPlayPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('howToPlayPopup')">&times;</span>
+            <h2>How to Play</h2>
+            <p>Answer the given math questions correctly and try to get the highest score. Use the number pad to enter your answer, then press submit.</p>
+        </div>
+    </div>
+
+    <!-- Credits Popup -->
+    <div id="creditsPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('creditsPopup')">&times;</span>
+            <h2>Credits</h2>
+            <p>Game Code, Callen<br>Scratch Game, Rory<br>Questions, Jack, Manuel, and Dylan<br>EST 2025®</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to go to the modules or game page
+        function openModules() {
+            document.getElementById('menu').style.display = 'none';  // Hide the game menu
+            document.getElementById('container').style.display = 'block';  // Show the module content
+        }
+
+        // Function to go back to the game menu and hide the module content
+        function goBackToMenu() {
+            document.getElementById('menu').style.display = 'block';  // Show the game menu
+            document.getElementById('container').style.display = 'none';  // Hide the module content
+        }
+
+        // Function to open a popup
+        function openPopup(id) {
+            document.getElementById(id).style.display = "block";
+        }
+
+        // Function to close a popup
+        function closePopup(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        // Function to open Scratch Game in a new tab in fullscreen
+        function openScratch() {
+            // Open Scratch game in a new tab with fullscreen settings
+            window.open("https://scratch.mit.edu/projects/1146689764/embed", "_blank", "width=1920,height=1080,fullscreen=yes");
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
